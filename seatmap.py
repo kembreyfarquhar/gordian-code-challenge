@@ -14,15 +14,14 @@ seat_map_details = seat_map_response.find(
 
 
 seats = []
-seat_type = None
-seat_id = None
-price = None
-cabin_class = None
-availability = None
 
 for item in seat_map_details:
     for row in item.findall('{http://www.opentravel.org/OTA/2003/05/common/}RowInfo'):
         cabin_class = row.attrib['CabinType']
+        seat_type = None
+        seat_id = None
+        price = None
+        availability = None
         for seat_info in row.findall('{http://www.opentravel.org/OTA/2003/05/common/}SeatInfo'):
             for seat in seat_info:
                 if seat.tag == '{http://www.opentravel.org/OTA/2003/05/common/}Summary':
@@ -42,3 +41,5 @@ for item in seat_map_details:
 
 
 json_seat_info = json.dumps(seats)
+
+print(json_seat_info)
