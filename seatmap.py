@@ -18,11 +18,11 @@ seats = []
 for item in seat_map_details:
     for row in item.findall('{http://www.opentravel.org/OTA/2003/05/common/}RowInfo'):
         cabin_class = row.attrib['CabinType']
-        seat_type = None
-        seat_id = None
-        price = None
-        availability = None
         for seat_info in row.findall('{http://www.opentravel.org/OTA/2003/05/common/}SeatInfo'):
+            seat_type = None
+            seat_id = None
+            price = None
+            availability = None
             for seat in seat_info:
                 if seat.tag == '{http://www.opentravel.org/OTA/2003/05/common/}Summary':
                     availability = seat.attrib['AvailableInd']
