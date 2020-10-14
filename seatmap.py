@@ -37,7 +37,7 @@ for item in seat_map_details:
                     for item in seat:
                         price = float(item.attrib['Amount'])
             seats.append({"seat_type": seat_type, "seat_id": seat_id, "price": price,
-                          "cabin_class": cabin_class, "availability": availability})
+                          "cabin_class": cabin_class, "availability": True if (availability == "true") else False})
 
 
 json_seat_info = json.dumps(seats)
