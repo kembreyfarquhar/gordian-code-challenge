@@ -36,8 +36,8 @@ for item in seat_map_details:
                 if seat.tag == '{http://www.opentravel.org/OTA/2003/05/common/}Service':
                     for item in seat:
                         price = float(item.attrib['Amount'])
-                seats.append({"seat_type": seat_type, "seat_id": seat_id, "price": price,
-                              "cabin_class": cabin_class, "availability": availability})
+            seats.append({"seat_type": seat_type, "seat_id": seat_id, "price": price,
+                          "cabin_class": cabin_class, "availability": availability})
 
 
 json_seat_info = json.dumps(seats)
